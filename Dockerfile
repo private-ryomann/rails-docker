@@ -12,17 +12,17 @@ RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
   && ln -s /opt/yarn/bin/yarn /usr/local/bin/yarnpkg \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
   && ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm \
-  && ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npx 
-RUN apt-get update 
-RUN apt-get install -y g++ make 
-RUN apt-get install -y  libpq-dev 
-RUN apt-get install -y postgresql-client
+  && ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npx \
+  && apt-get update \
+  && apt-get install -y \
+     g++ make \
+     libpq-dev \
+     postgresql-client
 
 WORKDIR /app
 
 COPY Gemfile Gemfile.lock package.json /app/
 
-RUN bundle install
-RUN yarn
+RUN bundle install && yarn
 
 CMD ["rails", "s", "-b", "0.0.0.0"]
