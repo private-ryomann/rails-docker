@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+使い方
 
-Things you may want to cover:
+1.このプロジェクトを自分のローカルにgit cloneしてください
 
-* Ruby version
+2.このプロジェクのルートディレクトリに移動し、docker-compose up -d を実行してください
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+3.localhost:3000にアクセスしアプリが起動していることを確認してください
