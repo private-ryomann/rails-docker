@@ -25,4 +25,6 @@ COPY Gemfile Gemfile.lock package.json /app/
 
 RUN bundle install && yarn
 
+RUN find ./bin -type f | xargs chmod +x 
+
 CMD ["rails", "s", "-b", "0.0.0.0"]
