@@ -5,9 +5,9 @@ services:
     build: 
       context: .
       args:
-        YARN_VERSION: ${YARN_VERSION}
+        YARN_VERSION: 1.22.15
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_PASSWORD=postgres
     ports:
       - '3000:3000'
     volumes:
@@ -22,7 +22,7 @@ services:
   db:
     image: postgres:12
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_PASSWORD=postgres
     volumes:
       - 'db-data:/var/lib/postgresql/12/data'
 
