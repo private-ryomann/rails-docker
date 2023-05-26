@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  web:
+    build: 
+      context: .
+      args:
+        YARN_VERSION: 1.22.15
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/app'
+    tty: true
+    stdin_open: true
+    depends_on:
+      - db
+    links: 
+      - db
+
+  db:
+    image: postgres:12
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - 'db-data:/var/lib/postgresql/12/data'
+
+volumes:
+  db-data:
